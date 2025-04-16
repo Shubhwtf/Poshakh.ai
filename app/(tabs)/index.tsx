@@ -22,7 +22,7 @@ export default function HomeScreen() {
 
       {/* Dashboard Stats */}
       <View style={styles.statsContainer}>
-        <Link href="/calendar" asChild>
+        <Link href="../(home)/calender" asChild>
           <TouchableOpacity style={styles.statCard}>
             <Feather name="calendar" size={24} color="#F97316" />
             <Text style={styles.statTitle}>Calendar</Text>
@@ -30,7 +30,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </Link>
 
-        <Link href="/streaks" asChild>
+        <Link href="../(home)/streaks" asChild>
           <TouchableOpacity style={styles.statCard}>
             <Feather name="trending-up" size={24} color="#F97316" />
             <Text style={styles.statTitle}>Streak</Text>
@@ -38,7 +38,7 @@ export default function HomeScreen() {
           </TouchableOpacity>
         </Link>
 
-        <Link href="/uploads" asChild>
+        <Link href="../(home)/uploads" asChild>
           <TouchableOpacity style={styles.statCard}>
             <Feather name="upload" size={24} color="#F97316" />
             <Text style={styles.statTitle}>Uploads</Text>
