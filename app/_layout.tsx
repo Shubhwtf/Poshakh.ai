@@ -1,31 +1,39 @@
-import { useEffect } from 'react';
 import { Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
-import { useFrameworkReady } from '@/hooks/useFrameworkReady';
-import { useFonts, PlayfairDisplay_400Regular, PlayfairDisplay_700Bold } from '@expo-google-fonts/playfair-display';
-import { Lato_400Regular, Lato_700Bold } from '@expo-google-fonts/lato';
+import { useFonts } from 'expo-font';
+import { useEffect } from 'react';
+import { Text } from 'react-native';
 
-export default function RootLayout() {
-  useFrameworkReady();
+// Import fonts
+import {
+  Lato_400Regular as LatoRegular,
+  Lato_700Bold as LatoBold,
+} from '@expo-google-fonts/lato';
 
-  const [fontsLoaded] = useFonts({
-    'PlayfairDisplay-Regular': PlayfairDisplay_400Regular,
-    'PlayfairDisplay-Bold': PlayfairDisplay_700Bold,
-    'Lato-Regular': Lato_400Regular,
-    'Lato-Bold': Lato_700Bold,
+import {
+  PlayfairDisplay_400Regular as PlayfairDisplayRegular,
+  PlayfairDisplay_700Bold as PlayfairDisplayBold,
+} from '@expo-google-fonts/playfair-display';
+
+export default function RootLayoutNav() {
+  const [loaded, error] = useFonts({
+    'Lato-Regular': LatoRegular,
+    'Lato-Bold': LatoBold,
+    'PlayfairDisplay-Regular': PlayfairDisplayRegular,
+    'PlayfairDisplay-Bold': PlayfairDisplayBold,
   });
 
-  if (!fontsLoaded) {
-    return null;
+  useEffect(() => {
+    if (error) throw error;
+  }, [error]);
+
+  if (!loaded) {
+    return <Text>Loading...</Text>;
   }
 
   return (
-    <>
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="+not-found" options={{ title: 'Oops!' }} />
-      </Stack>
-      <StatusBar style="auto" />
-    </>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="landing" options={{ animation: 'none' }} />
+      <Stack.Screen name="(tabs)" options={{ animation: 'slide_from_right' }} />
+    </Stack>
   );
 }

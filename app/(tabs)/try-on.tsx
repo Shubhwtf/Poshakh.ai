@@ -69,7 +69,7 @@ export default function TryOnScreen() {
 
       {mode === 'camera' && (
         <View style={styles.cameraContainer}>
-          <CameraView style={styles.camera} type={cameraType}>
+          <CameraView style={styles.camera}>
             <View style={styles.cameraControls}>
               <TouchableOpacity
                 style={styles.flipButton}

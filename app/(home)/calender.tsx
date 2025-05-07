@@ -14,7 +14,7 @@ export default function CalendarScreen() {
   const days = [...Array(daysInMonth).keys()].map(i => i + 1);
   
   // Calendar data with outfit suggestions
-  const calendarData = {
+  const calendarData: Record<number, { outfit: string; description: string }> = {
     12: {
       outfit: 'https://images.unsplash.com/photo-1551489186-cf8726f514f8?auto=format&fit=crop&w=800&q=80',
       description: 'Casual Spring Outfit'

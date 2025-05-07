@@ -1,5 +1,5 @@
 import { Tabs } from 'expo-router';
-import { Home, Search, Plus, TrendingUp, User } from 'lucide-react-native';
+import { Home, Search, Plus, User } from 'lucide-react-native';
 
 export default function TabLayout() {
   return (
@@ -46,13 +46,6 @@ export default function TabLayout() {
               }}
             />
           ),
-        }}
-      />
-      <Tabs.Screen
-        name="trends"
-        options={{
-          title: 'Trends',
-          tabBarIcon: ({ color, size }) => <TrendingUp size={size} color={color} />,
         }}
       />
       <Tabs.Screen
